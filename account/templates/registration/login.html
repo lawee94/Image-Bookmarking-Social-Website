@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Log-in{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h3>Log-in</h3><hr>
+        <form action="" method="POST">
+           <p>Please use the following form to login.</p>
+
+            {% if form.errors %}
+                <p class="text-danger">Incorrect username or password. Please try again.</p>
+            {% endif %}
+
+            <ul style="max-width: 400px">
+                {{ form.username }}
+                {{ form.password }}
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                <li><Button type="submit" class='btn btn-primary'>Log-in</Button></li><br>
+                <p><a href="{% url 'password_reset' %}" style="color: rgb(74, 240, 222)">Forgotten your  password?</a></p>
+                <p>New User? <a href="{% url 'register' %}" style="color: green"> Sign up here</a></p>
+            </ul>
+        
+            <div class="btn">
+                <ul>
+                    
+                </ul>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

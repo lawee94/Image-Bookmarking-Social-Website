@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h3>Create an account</h3><hr>
+        <form action="" method="POST">
+           <p>Please use the following form to signup.</p>
+            {{ form.username }}
+            {{ form.first_name }}
+            {{ form.email }}
+            {{ form.password }}
+            {{ form.password2 }}
+            {% csrf_token %}
+            <button type="submit" class='btn btn-primary mb-2'>Sign up</button><br>
+            <p>Already have an account? <a href="{% url 'login' %}" style="color: green"> Login here</a></p>
+        </form>
+    </div>
+{% endblock %}
